@@ -23,12 +23,12 @@ F.toggle_breakpoint = function ()
 	F.breakpoints_changed_in_current_buffer()
 end
 
-F.set_conditional_breakpoint = function ()
-	require('dap').set_breakpoint(vim.fn.input('[Condition] > '));
+F.set_breakpoint = function (condition, logMessage, hitCondition)
+	require('dap').set_breakpoint(condition, logMessage, hitCondition);
 	F.breakpoints_changed_in_current_buffer()
 end
 
-F.clear_all_breakpoints = function ()
+F.clear_breakpoints = function ()
 	require("dap").clear_breakpoints()
 	inmemory_bps.bps = {}
 	inmemory_bps.changed = true
@@ -44,9 +44,9 @@ F.store_breakpoints = function (clear)
 		end
 		utils.write_bps(utils.get_bps_path(),tmp_fbps)
 	else
-		vim.notify_once('The store_breakpoints function will not accept parameters in the future. If you want to clear all breakpoints, you should the use clear_all_breakpoints function.','WARN')
+		vim.notify_once('The store_breakpoints function will not accept parameters in the future. If you want to clear all breakpoints, you should the use clear_breakpoints function.','WARN')
 		if clear == true then
-			F.clear_all_breakpoints()
+			F.clear_breakpoints()
 		else
 			F.store_breakpoints(nil)
 		end
