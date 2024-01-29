@@ -7,9 +7,9 @@ persistent-breakpoints is a lua plugin for Neovim to save the [nvim-dap](https:/
 
 ## Install
 ### with `packer.nvim`  
-`use {'Weissle/persistent-breakpoints.nvim'}`  
+`use {'ESSO0428/persistent-breakpoints.nvim'}`  
 ### or with `vim-plug`  
-`Plug 'Weissle/persistent-breakpoints.nvim'`
+`Plug 'ESSO0428/persistent-breakpoints.nvim'`
 
 ## Setup
 ```lua
