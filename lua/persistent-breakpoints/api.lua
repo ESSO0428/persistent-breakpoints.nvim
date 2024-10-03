@@ -23,7 +23,7 @@ F.toggle_breakpoint = function()
   F.breakpoints_changed_in_current_buffer()
 end
 
-F.clear_breakpoints = function()
+F.clear_all_breakpoints = function()
   require("dap").clear_breakpoints()
   inmemory_bps.bps = {}
   inmemory_bps.changed = true
@@ -43,7 +43,7 @@ F.store_breakpoints = function(clear)
       'The store_breakpoints function will not accept parameters in the future. If you want to clear all breakpoints, you should the use clear_breakpoints function.',
       'WARN')
     if clear == true then
-      F.clear_breakpoints()
+      F.clear_all_breakpoints()
     else
       F.store_breakpoints(nil)
     end
